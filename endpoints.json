@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "platform": "douyin",
+  "platformName": "Douyin",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "douyin/live-room-detail",
+      "name": "Douyin Live Room Detail API",
+      "description": "Retrieve one public Douyin live room from a known numeric room ID, returning normalized room context, host identity, media, visible viewer and like counts, and collection time.",
+      "method": "POST",
+      "path": "/v1/douyin/live-room-detail",
+      "payload": "payloads/live-room-detail.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.1 credits ($0.0005) per call",
+      "billing": {
+        "baseCredits": 0.1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/douyin/live-room-detail",
+      "landingUrl": "https://socq.ai/apis/douyin/live-room-detail",
+      "required": [
+        "room_id"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "room_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public live room identifier."
+          }
+        },
+        "required": [
+          "room_id"
+        ]
+      }
+    },
+    {
+      "publicId": "douyin/user-profile",
+      "name": "Douyin User Profile API",
+      "description": "Retrieve one public Douyin profile from a supported profile URL or user identifier, returning normalized identity, biography, imagery, account flags, visible counts, and collection context.",
+      "method": "POST",
+      "path": "/v1/douyin/user-profile",
+      "payload": "payloads/user-profile.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.1 credits ($0.0005) per call",
+      "billing": {
+        "baseCredits": 0.1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/douyin/user-profile",
+      "landingUrl": "https://socq.ai/apis/douyin/user-profile",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "url"
+        ],
+        [
+          "user_id"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public content or product URL."
+          },
+          "user_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public account identifier."
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "url"
+            ]
+          },
+          {
+            "required": [
+              "user_id"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "douyin/user-videos",
+      "name": "Douyin User Videos API",
+      "description": "Collect up to 20 public videos from one Douyin profile URL or known user ID, returning normalized content, author, media, duration, timestamps, and visible engagement fields.",
+      "method": "POST",
+      "path": "/v1/douyin/user-videos",
+      "payload": "payloads/user-videos.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.1 credits ($0.0005) per call",
+      "billing": {
+        "baseCredits": 0.1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/douyin/user-videos",
+      "landingUrl": "https://socq.ai/apis/douyin/user-videos",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "url"
+        ],
+        [
+          "user_id"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 20
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public content or product URL."
+          },
+          "user_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public account identifier."
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "url"
+            ]
+          },
+          {
+            "required": [
+              "user_id"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "douyin/video-comments",
+      "name": "Douyin Video Comments API",
+      "description": "Collect one page of public comments from a direct Douyin video URL, returning normalized text, author, relationship, time, and visible engagement fields.",
+      "method": "POST",
+      "path": "/v1/douyin/video-comments",
+      "payload": "payloads/video-comments.json",
+      "launchedAt": "2026-08-18",
+      "price": "0.1 credits ($0.0005) per call",
+      "billing": {
+        "baseCredits": 0.1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/douyin/video-comments",
+      "landingUrl": "https://socq.ai/apis/douyin/video-comments",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 20
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public content or product URL."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "publicId": "douyin/video-detail",
+      "name": "Douyin Video Detail API",
+      "description": "Retrieve one public Douyin video from a known douyin.com or iesdouyin.com video URL, returning normalized video identity, caption, creator, media, duration, timestamps, and visible engagement.",
+      "method": "POST",
+      "path": "/v1/douyin/video-detail",
+      "payload": "payloads/video-detail.json",
+      "launchedAt": "2026-08-17",
+      "price": "0.1 credits ($0.0005) per call",
+      "billing": {
+        "baseCredits": 0.1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/douyin/video-detail",
+      "landingUrl": "https://socq.ai/apis/douyin/video-detail",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public content or product URL."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "publicId": "douyin/video-search",
+      "name": "Douyin Video Search API",
+      "description": "Search one fixed first page of public Douyin videos by text query, returning normalized captions, author context, media, duration, timestamps, and visible engagement when available.",
+      "method": "POST",
+      "path": "/v1/douyin/video-search",
+      "payload": "payloads/video-search.json",
+      "launchedAt": "2026-08-18",
+      "price": "0.1 credits ($0.0005) per call",
+      "billing": {
+        "baseCredits": 0.1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/douyin/video-search",
+      "landingUrl": "https://socq.ai/apis/douyin/video-search",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Search query."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "2.0.0",
+  "kind": "platform",
+  "platform": "douyin",
+  "endpointCount": 6,
+  "endpoints": [
+    "douyin/live-room-detail",
+    "douyin/user-profile",
+    "douyin/user-videos",
+    "douyin/video-comments",
+    "douyin/video-detail",
+    "douyin/video-search"
+  ],
+  "landingPage": "https://socq.ai/apis/douyin",
+  "docsPage": "https://docs.socq.ai/api-manual/douyin/overview",
+  "generatedFrom": "SocQAPI/socq-example-template"
+}
